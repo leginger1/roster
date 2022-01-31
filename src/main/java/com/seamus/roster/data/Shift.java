@@ -17,10 +17,10 @@ public class Shift {
     private Employee employee;
     private Timestamp startTime;
     private Timestamp endTime;
-    private String notes;
+    private String note;
 
     @Override
     public String toString() {
-        return String.format("Shift[id=%d, employee=%s, startTime=%s, endTime=%s, notes='%s'", id, employee.toString(), startTime.toString(), endTime.toString(), notes);
+        return String.format("Shift[id=%d, employee=%s, startTime=%s, endTime=%s, notes='%s'", id, employee.toString(), startTime.toString(), endTime.toString(), note);
     }
 }
