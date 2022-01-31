@@ -3,6 +3,7 @@ package com.seamus.roster.data;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,8 +16,11 @@ public class Employee {
     @OneToOne
     private User user;
 
-    @OneToOne
+    @ManyToOne
     private Business business;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Shift> shifts;
 
     @Override
     public String toString() {
