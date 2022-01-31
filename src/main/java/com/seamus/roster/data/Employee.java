@@ -2,10 +2,7 @@ package com.seamus.roster.data;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,8 +11,12 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long userId;
-    private Long businessId;
+
+    @OneToOne
+    private User user;
+
+    @OneToOne
+    private Business business;
 
     @Override
     public String toString() {
