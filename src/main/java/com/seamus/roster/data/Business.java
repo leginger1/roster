@@ -2,10 +2,8 @@ package com.seamus.roster.data;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,5 +13,13 @@ public class Business {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Long ownerId;
+    @OneToOne
+    private User owner;
+    @OneToMany(mappedBy = "business")
+    private List<Employee> employees;
+
+    @Override
+    public String toString() {
+        return String.format("Business[id=%d, name=%s, owner=%s]", id, name, owner);
+    }
 }
