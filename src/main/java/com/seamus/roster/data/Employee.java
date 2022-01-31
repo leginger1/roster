@@ -20,6 +20,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee[id=%d, userId=%d, businessId=%id]", id, userId, businessId);
+        return String.format("Employee[id=%d, userId=%d, businessId=%id]", id, user.toString(), business.toString());
     }
 }
