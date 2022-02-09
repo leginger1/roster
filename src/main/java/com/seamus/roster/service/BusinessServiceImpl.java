@@ -6,6 +6,10 @@ import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 public class BusinessServiceImpl implements BusinessService {
 
@@ -15,6 +19,11 @@ public class BusinessServiceImpl implements BusinessService {
     @Override
     public Business createBusiness(Business business) {
         return businessRepo.save(business);
+    }
+
+    @Override
+    public List<Business> getAllBusiness() {
+        return StreamSupport.stream(businessRepo.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
     @Override
